@@ -27,14 +27,28 @@
 
 # Day3 分支結構
 # 練習1：英制單位英寸與公制單位釐米互換。
-try:
-    value = eval(input("輸入數字: "))
-    unit = input("輸入單位: ")
-    if (unit == "inch") or (unit == "英吋"):
-        print("{} 英吋(inch) = {} 釐米(cm)".format(value, round(value/2.54, 2)))
-    elif (unit == "cm") or (unit == "釐米"):
-        print("{} 釐米(cm) = {} 英吋(inch)".format(value, round(value*2.54, 2)))
-    else:
-        print("輸入異常!")
-except Exception as e:
-    print(e)
+# try:
+#     value = eval(input("輸入數字: "))
+#     unit = input("輸入單位: ")
+#     if (unit == "inch") or (unit == "英吋"):
+#         print("{} 英吋(inch) = {} 釐米(cm)".format(value, round(value/2.54, 2)))
+#     elif (unit == "cm") or (unit == "釐米"):
+#         print("{} 釐米(cm) = {} 英吋(inch)".format(value, round(value*2.54, 2)))
+#     else:
+#         print("輸入異常!")
+# except Exception as e:
+#     print(e)
+
+# 練習3：輸入三條邊長，如果能構成三角形就計算周長和麵積。
+
+a = eval(input("輸入邊長(a): "))
+b = eval(input("輸入邊長(b): "))
+c = eval(input("輸入邊長(c): "))
+
+if (a + b >= c) or (a + c >= b) or (b + c >= a):
+    perimeter = a + b + c
+    s = perimeter / 2
+    area =  (s * (s-a) * (s - b) * (s - c)) * 0.5
+    print("周長: {}, 面積: {}".format(perimeter, round(area, 2)))
+else:
+    print("條件不符合三角形")
