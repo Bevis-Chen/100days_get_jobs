@@ -2,30 +2,39 @@
 # Go to python!!
 # JobS!!!
 
+# Day2 語言元素
 # 練習1：華氏溫度轉換為攝氏溫度。
 # _F = eval(input("輸入華氏溫度 : "))
 # _C = (_F - 32) / 1.8
 # print("華氏溫度: ", _F,  "\n攝氏溫度: ", _C)
 
 # 練習2：輸入圓的半徑計算計算周長和麵積。
-# import math 
 # r = eval(input("輸入圓的半徑: "))
 # perimeter = 2 * r * 3.14159
 # area = r * r *3.14159
-# print(
-#     "周長是: ", perimeter, 
-#     "\n", 
-#     "面積是: ", area
-# )
+# print("周長是: ", perimeter, "\n", "面積是: ", area)
 
 # 練習3：輸入年份判斷是不是閏年。
     # 公元年份非4的倍數，為365天平年。
     # 公元年份為4的倍數但非100的倍數，為366天閏年。
     # 公元年份為100的倍數但非400的倍數（1700年、1800年及1900年）為平年。
     # 公元年份為400的倍數（1600年及2000年）為閏年。
-yr = eval(input("輸入年分: "))
+# yr = eval(input("輸入年分: "))
+# if (yr % 4 == 0 and yr % 100 !=0) or (yr % 400 == 0 and yr % 100 ==0) :
+#     print(yr, "是閏年")
+# else:
+#     print(yr, "不是閏年")
 
-if (yr % 4 == 0 and yr % 100 !=0) or (yr % 400 == 0 and yr % 100 ==0) :
-    print(yr, "是閏年")
-else:
-    print(yr, "不是閏年")
+# Day3 分支結構
+# 練習1：英制單位英寸與公制單位釐米互換。
+try:
+    value = eval(input("輸入數字: "))
+    unit = input("輸入單位: ")
+    if (unit == "inch") or (unit == "英吋"):
+        print("{} 英吋(inch) = {} 釐米(cm)".format(value, round(value/2.54, 2)))
+    elif (unit == "cm") or (unit == "釐米"):
+        print("{} 釐米(cm) = {} 英吋(inch)".format(value, round(value*2.54, 2)))
+    else:
+        print("輸入異常!")
+except Exception as e:
+    print(e)
