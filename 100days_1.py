@@ -41,14 +41,29 @@
 
 # 練習3：輸入三條邊長，如果能構成三角形就計算周長和麵積。
 
-a = eval(input("輸入邊長(a): "))
-b = eval(input("輸入邊長(b): "))
-c = eval(input("輸入邊長(c): "))
+# a = eval(input("輸入邊長(a): "))
+# b = eval(input("輸入邊長(b): "))
+# c = eval(input("輸入邊長(c): "))
 
-if (a + b >= c) or (a + c >= b) or (b + c >= a):
-    perimeter = a + b + c
-    s = perimeter / 2
-    area =  (s * (s-a) * (s - b) * (s - c)) * 0.5
-    print("周長: {}, 面積: {}".format(perimeter, round(area, 2)))
-else:
-    print("條件不符合三角形")
+# if (a + b >= c) or (a + c >= b) or (b + c >= a):
+#     perimeter = a + b + c
+#     s = perimeter / 2
+#     area =  (s * (s-a) * (s - b) * (s - c)) * 0.5
+#     print("周長: {}, 面積: {}".format(perimeter, round(area, 2)))
+# else:
+#     print("條件不符合三角形")
+
+# Day 5 構造程式邏輯
+# 1. 尋找水仙花數。
+# 說明：水仙花數也被稱為超完全數字不變數、自戀數、自冪數、阿姆斯特朗數，
+# 它是一個3位數，該數字每個位上數字的立方之和正好等於它本身，
+# 例如：$1^3 + 5^3+ 3^3=153$。
+
+for i in range(100, 1000):
+    str_i = str(i)
+    a = eval(str_i[0])
+    b = eval(str_i[1])
+    c = eval(str_i[2])
+    # print(c, type(c))
+    if i == (a**3 + b**3 + c**3):
+        print(i)  
