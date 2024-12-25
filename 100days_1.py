@@ -59,11 +59,31 @@
 # 它是一個3位數，該數字每個位上數字的立方之和正好等於它本身，
 # 例如：$1^3 + 5^3+ 3^3=153$。
 
-for i in range(100, 1000):
-    str_i = str(i)
-    a = eval(str_i[0])
-    b = eval(str_i[1])
-    c = eval(str_i[2])
-    # print(c, type(c))
-    if i == (a**3 + b**3 + c**3):
-        print(i)  
+# for i in range(100, 1000):
+#     str_i = str(i)
+#     a = eval(str_i[0])
+#     b = eval(str_i[1])
+#     c = eval(str_i[2])
+#     # print(c, type(c))
+#     if i == (a**3 + b**3 + c**3):
+#         print(i)  
+
+# ex :輸出100以內所有的素數。
+# 說明：素數指的是隻能被1和自身整除的正整數（不包括1）。
+time = 0
+for num in range(2, 7):
+    # print(num)
+    for i in (1, num):
+        print(i)
+    print("---")
+        # if (num % i) == 0:
+            # time += 1
+        # if time >= 2:
+        #     print(num)
+        #     time = 0
+
+# for i in (1, num + 1):
+#     time = 0
+#     if (num % i) == 0:
+#         time += 1
+
