@@ -70,20 +70,13 @@
 
 # ex :輸出100以內所有的素數。
 # 說明：素數指的是隻能被1和自身整除的正整數（不包括1）。
-time = 0
-for num in range(2, 7):
-    # print(num)
-    for i in (1, num):
-        print(i)
-    print("---")
-        # if (num % i) == 0:
-            # time += 1
-        # if time >= 2:
-        #     print(num)
-        #     time = 0
 
-# for i in (1, num + 1):
-#     time = 0
-#     if (num % i) == 0:
-#         time += 1
-
+for num in range(2, 101):
+    time = 0
+    for i in range(1, num+1):
+        if (num % i) == 0:
+            time += 1
+    if time == 2:
+        print(num, end = ", ")
+        time = 0
+print()
