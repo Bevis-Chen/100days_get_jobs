@@ -70,13 +70,26 @@
 
 # ex :輸出100以內所有的素數。
 # 說明：素數指的是隻能被1和自身整除的正整數（不包括1）。
+# for num in range(2, 101):
+#     time = 0
+#     for i in range(1, num+1):
+#         if (num % i) == 0:
+#             time += 1
+#     if time == 2:
+#         print(num, end = ", ")
+# print()
 
-for num in range(2, 101):
-    time = 0
-    for i in range(1, num+1):
+# ex: 找出10000以內的完美數。
+# 說明：完美數又稱為完全數或完備數，
+#      它的所有的真因子（即除了自身以外的因子）的和（即因子函式）恰好等於它本身。
+#      例如：6（$6=1+2+3$）和28（$28=1+2+4+7+14$）就是完美數。
+#      完美數有很多神奇的特性，有興趣的可以自行了解。
+
+for num in range(2, 10000):
+    temp = 0
+    for i in range(1, num):
         if (num % i) == 0:
-            time += 1
-    if time == 2:
-        print(num, end = ", ")
-        time = 0
-print()
+            temp += i
+    if num == temp:
+        print(temp)
+        
