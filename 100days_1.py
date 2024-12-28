@@ -100,12 +100,26 @@
 # 從第三個數開始，每個數都是它前面兩個數的和，
 # 形如：1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, ...。
 # 斐波那契數列在現代物理、準晶體結構、化學等領域都有直接的應用。
+# a = 1
+# b = 1
+# print(a, b, sep = ", ", end = ", ")
+# for i in range(20 - 2):
+#     c = a + b
+#     print(c, end = ", ")
+#     a = b
+#     b = c
 
-a = 1
-b = 1
-print(a, b, sep = ", ", end = ", ")
-for i in range(20 - 2 + 1):
-    c = a + b
-    print(c, end = ", ")
-    a = b
-    b = c
+# Day 6 >> 函式和模組的使用
+# 練習3：實現判斷一個數是不是素數的函式。
+
+def _prime_num(num):
+    time = 0
+    for i in range(1, num+1):
+        if (num % i) == 0:
+            time += 1
+    if time == 2:
+        print(num, "是個素數")
+    else:
+        print(num, "不是個素數")
+        
+_prime_num(4)
