@@ -127,17 +127,44 @@
 # 最大公因數（英語：highest common factor，hcf）
 # 最小公倍數（英語：least common multiple，lcm）
 
-def main():
-    def hcf(a, b):
-        for number in range(2, a+1):
-            if (a % number == 0) and (b % number == 0):
-                print(number)
-    def lmc(a, b):
-        print(a * b)
+# def main():
+#     def hcf(a, b):
+#         for number in range(2, a+1):
+#             if (a % number == 0) and (b % number == 0):
+#                 print(number)
+#     def lmc(a, b):
+#         print(a * b)
 
-    hcf(6, 18)
-    print("----------------")
-    lmc(6, 18)
+#     hcf(6, 18)
+#     print("----------------")
+#     lmc(6, 18)
 
-if __name__ == "__main__":
-    main()
+# if __name__ == "__main__":
+#     main()
+
+# Day07.字符串和常用数据结构.md
+# s1 = "\"hello, world!\""
+# s2 = '\n\\hello, world!\\\n'
+# print(s1, s2 ,end="")
+# s1 = r'\141\142\143\x61\x62\x63'
+# s2 = '\u9a86\u660a'
+# print(s1, s2)
+
+# ex01: 在螢幕上顯示跑馬燈文字。
+# import os
+# import time
+
+# def main():
+#     content = '北京歡迎你為你開天闢地…………'
+#     while True:
+#         # 清理螢幕上的輸出
+#         os.system('cls')  # os.system('clear')
+#         print(content)
+#         # 休眠200毫秒
+#         time.sleep(0.2)
+#         content = content[1:] + content[0]
+# if __name__ == '__main__':
+#     main()
+
+# 練習2：設計一個函式產生指定長度的驗證碼，驗證碼由大小寫字母和數字構成。
+
