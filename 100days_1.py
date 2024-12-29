@@ -168,3 +168,17 @@
 
 # 練習2：設計一個函式產生指定長度的驗證碼，驗證碼由大小寫字母和數字構成。
 
+def main():
+    # str_long = eval(input("輸入長度: "))
+    str_use = input("輸入: ")
+    validation_string = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
+    for str1 in str_use:              
+        if str1 not in validation_string:
+            print("不符規範: 驗證碼由大小寫字母和數字構成")
+            break
+        else:
+            continue
+    print("Pass")
+
+if __name__ == "__main__":
+    main()
