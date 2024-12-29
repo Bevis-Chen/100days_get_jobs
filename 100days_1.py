@@ -112,14 +112,32 @@
 # Day 6 >> 函式和模組的使用
 # 練習3：實現判斷一個數是不是素數的函式。
 
-def _prime_num(num):
-    time = 0
-    for i in range(1, num+1):
-        if (num % i) == 0:
-            time += 1
-    if time == 2:
-        print(num, "是個素數")
-    else:
-        print(num, "不是個素數")
-        
-_prime_num(4)
+# def _prime_num(num):
+#     time = 0
+#     for i in range(1, num+1):
+#         if (num % i) == 0:
+#             time += 1
+#     if time == 2:
+#         print(num, "是個素數")
+#     else:
+#         print(num, "不是個素數")
+# _prime_num(4)
+
+# 練習1：實現計算求最大公約數和最小公倍數的函式。
+# 最大公因數（英語：highest common factor，hcf）
+# 最小公倍數（英語：least common multiple，lcm）
+
+def main():
+    def hcf(a, b):
+        for number in range(2, a+1):
+            if (a % number == 0) and (b % number == 0):
+                print(number)
+    def lmc(a, b):
+        print(a * b)
+
+    hcf(6, 18)
+    print("----------------")
+    lmc(6, 18)
+
+if __name__ == "__main__":
+    main()
