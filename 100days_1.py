@@ -167,14 +167,78 @@
 #     main()
 
 # 練習2：設計一個函式產生指定長度的驗證碼，驗證碼由大小寫字母和數字構成。
-import random
+# import random
 
-def main(code_len = 5):
-    validation_ = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
-    vali_string = ""
-    for i in range(code_len):
-        index_ = random.randint(0, len(validation_))
-        vali_string += validation_[index_]
-    return vali_string
-if __name__ == "__main__":
-    print(main(10))
+# def main(code_len = 5):
+#     validation_ = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
+#     vali_string = ""
+#     for i in range(code_len):
+#         index_ = random.randint(0, len(validation_))
+#         vali_string += validation_[index_]
+#     return vali_string
+# if __name__ == "__main__":
+#     print(main(10))
+
+# 綜合案例2：約瑟夫環問題。
+# 問題即，給定人數、起點、方向和要跳過的數字，選擇初始圓圈中的位置以避免被處決。
+"""
+《幸運的基督徒》
+有15個基督徒和15個非基督徒在海上遇險，
+為了能讓一部分人活下來不得不將其中15個人扔到海里面去，
+有個人想了個辦法就是大家圍成一個圈，
+由某個人開始從1報數，
+    報到9的人就扔到海里面，
+他後面的人接著從1開始報數，
+    報到9的人繼續扔到海里面，
+        直到扔掉15個人。
+由於上帝的保佑，
+15個基督徒都倖免於難，
+問這些人最開始是怎麼站的，
+哪些位置是基督徒哪些位置是非基督徒。
+"""
+from time import sleep
+
+
+class Clock(object):
+    """數字時鐘"""
+
+    def __init__(self, hour=0, minute=0, second=0):
+        """初始化方法
+
+        :param hour: 時
+        :param minute: 分
+        :param second: 秒
+        """
+        self._hour = hour
+        self._minute = minute
+        self._second = second
+
+    def run(self):
+        """走字"""
+        self._second += 1
+        if self._second == 60:
+            self._second = 0
+            self._minute += 1
+            if self._minute == 60:
+                self._minute = 0
+                self._hour += 1
+                if self._hour == 24:
+                    self._hour = 0
+
+    def show(self):
+        """顯示時間"""
+        return '%02d:%02d:%02d' % \
+               (self._hour, self._minute, self._second)
+
+
+def main():
+    clock = Clock(23, 59, 58)
+    while True:
+        print(clock.show())
+        sleep(1)
+        clock.run()
+
+
+if __name__ == '__main__':
+    main()
+
