@@ -181,76 +181,121 @@
 
 # 綜合案例2：約瑟夫環問題。
 # 問題即，給定人數、起點、方向和要跳過的數字，選擇初始圓圈中的位置以避免被處決。
-"""
-《幸運的基督徒》
-有15個基督徒和15個非基督徒在海上遇險，
-為了能讓一部分人活下來不得不將其中15個人扔到海里面去，
-有個人想了個辦法就是大家圍成一個圈，
-由某個人開始從1報數，
-    報到9的人就扔到海里面，
-他後面的人接著從1開始報數，
-    報到9的人繼續扔到海里面，
-        直到扔掉15個人。
-由於上帝的保佑，
-15個基督徒都倖免於難，
-問這些人最開始是怎麼站的，
-哪些位置是基督徒哪些位置是非基督徒。
-"""
-from time import sleep
+# """
+# 《幸運的基督徒》
+# 有15個基督徒和15個非基督徒在海上遇險，
+# 為了能讓一部分人活下來不得不將其中15個人扔到海里面去，
+# 有個人想了個辦法就是大家圍成一個圈，
+# 由某個人開始從1報數，
+#     報到9的人就扔到海里面，
+# 他後面的人接著從1開始報數，
+#     報到9的人繼續扔到海里面，
+#         直到扔掉15個人。
+# 由於上帝的保佑，
+# 15個基督徒都倖免於難，
+# 問這些人最開始是怎麼站的，
+# 哪些位置是基督徒哪些位置是非基督徒。
+# """
+# from time import sleep
+
+# class Clock(object):
+#     """數字時鐘"""
+
+#     def __init__(self, hour=0, minute=0, second=0):
+#         """初始化方法
+
+#         :param hour: 時
+#         :param minute: 分
+#         :param second: 秒
+#         """
+#         self._hour = hour
+#         self._minute = minute
+#         self._second = second
+
+#     def run(self):
+#         """走字"""
+#         self._second += 1
+#         if self._second == 60:
+#             self._second = 0
+#             self._minute += 1
+#             if self._minute == 60:
+#                 self._minute = 0
+#                 self._hour += 1
+#                 if self._hour == 24:
+#                     self._hour = 0
+
+#     def show(self):
+#         """顯示時間"""
+#         return '%02d:%02d:%02d' % \
+#                (self._hour, self._minute, self._second)
+# def main():
+#     clock = Clock(23, 59, 58)
+#     while True:
+#         print(clock.show())
+#         sleep(1)
+#         clock.run()
+
+# if __name__ == '__main__':
+    # main()
 
 
-class Clock(object):
-    """數字時鐘"""
+# from math import qrt
 
-    def __init__(self, hour=0, minute=0, second=0):
-        """初始化方法
 
-        :param hour: 時
-        :param minute: 分
-        :param second: 秒
-        """
-        self._hour = hour
-        self._minute = minute
-        self._second = second
+# class Point(object):
 
-    def run(self):
-        """走字"""
-        self._second += 1
-        if self._second == 60:
-            self._second = 0
-            self._minute += 1
-            if self._minute == 60:
-                self._minute = 0
-                self._hour += 1
-                if self._hour == 24:
-                    self._hour = 0
+#     def __init__(self, x=0, y=0):
+#         self.x = x
+#         self.y = y
+#     def
 
-    def show(self):
-        """顯示時間"""
-        return '%02d:%02d:%02d' % \
-               (self._hour, self._minute, self._second)
+
+import tkinter
+import tkinter.messagebox
 
 
 def main():
-    clock = Clock(23, 59, 58)
-    while True:
-        print(clock.show())
-        sleep(1)
-        clock.run()
+    flag = True
+
+    # 修改標籤上的文字
+    def change_label_text():
+        nonlocal flag
+        flag = not flag
+        color, msg = ('red', 'Hello, world!')\
+            if flag else ('blue', 'Goodbye, world!')
+        label.config(text=msg, fg=color)
+
+    # 確認退出
+    def confirm_to_quit():
+        if tkinter.messagebox.askokcancel('溫馨提示', '確定要退出嗎?'):
+            top.quit()
+
+    # 建立頂層視窗
+    top = tkinter.Tk()
+    # 設定視窗大小
+    top.geometry('240x160')
+    # 設定視窗標題
+    top.title('小遊戲')
+    # 建立標籤物件並新增到頂層視窗
+    label = tkinter.Label(top, text='Hello, world!', font='Arial -32', fg='red')
+    label.pack(expand=1)
+    # 建立一個裝按鈕的容器
+    panel = tkinter.Frame(top)
+    # 建立按鈕物件 指定新增到哪個容器中 透過command引數繫結事件回撥函式
+    button1 = tkinter.Button(panel, text='修改', command=change_label_text)
+    button1.pack(side='left')
+    button2 = tkinter.Button(panel, text='退出', command=confirm_to_quit)
+    button2.pack(side='right')
+    panel.pack(side='bottom')
+    # 開啟主事件迴圈
+    tkinter.mainloop()
 
 
 if __name__ == '__main__':
     main()
 
 
-from math import qrt
+# a = (1,1,1,1,1,1,1)
 
-class Point(object):
-
-    def __init__(self, x=0, y=0):
-        self.x = x
-        self.y = y
-    def
-
-
+# print(a)
 
