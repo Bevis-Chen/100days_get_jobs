@@ -250,52 +250,63 @@
 #     def
 
 
-import tkinter
-import tkinter.messagebox
+# import tkinter
+# import tkinter.messagebox
 
 
-def main():
-    flag = True
+# def main():
+#     flag = True
 
-    # 修改標籤上的文字
-    def change_label_text():
-        nonlocal flag
-        flag = not flag
-        color, msg = ('red', 'Hello, world!')\
-            if flag else ('blue', 'Goodbye, world!')
-        label.config(text=msg, fg=color)
+#     # 修改標籤上的文字
+#     def change_label_text():
+#         nonlocal flag
+#         flag = not flag
+#         color, msg = ('red', 'Hello, world!')\
+#             if flag else ('blue', 'Goodbye, world!')
+#         label.config(text=msg, fg=color)
 
-    # 確認退出
-    def confirm_to_quit():
-        if tkinter.messagebox.askokcancel('溫馨提示', '確定要退出嗎?'):
-            top.quit()
+#     # 確認退出
+#     def confirm_to_quit():
+#         if tkinter.messagebox.askokcancel('溫馨提示', '確定要退出嗎?'):
+#             top.quit()
 
-    # 建立頂層視窗
-    top = tkinter.Tk()
-    # 設定視窗大小
-    top.geometry('240x160')
-    # 設定視窗標題
-    top.title('小遊戲')
-    # 建立標籤物件並新增到頂層視窗
-    label = tkinter.Label(top, text='Hello, world!', font='Arial -32', fg='red')
-    label.pack(expand=1)
-    # 建立一個裝按鈕的容器
-    panel = tkinter.Frame(top)
-    # 建立按鈕物件 指定新增到哪個容器中 透過command引數繫結事件回撥函式
-    button1 = tkinter.Button(panel, text='修改', command=change_label_text)
-    button1.pack(side='left')
-    button2 = tkinter.Button(panel, text='退出', command=confirm_to_quit)
-    button2.pack(side='right')
-    panel.pack(side='bottom')
-    # 開啟主事件迴圈
-    tkinter.mainloop()
-
-
-if __name__ == '__main__':
-    main()
+#     # 建立頂層視窗
+#     top = tkinter.Tk()
+#     # 設定視窗大小
+#     top.geometry('240x160')
+#     # 設定視窗標題
+#     top.title('小遊戲')
+#     # 建立標籤物件並新增到頂層視窗
+#     label = tkinter.Label(top, text='Hello, world!', font='Arial -32', fg='red')
+#     label.pack(expand=1)
+#     # 建立一個裝按鈕的容器
+#     panel = tkinter.Frame(top)
+#     # 建立按鈕物件 指定新增到哪個容器中 透過command引數繫結事件回撥函式
+#     button1 = tkinter.Button(panel, text='修改', command=change_label_text)
+#     button1.pack(side='left')
+#     button2 = tkinter.Button(panel, text='退出', command=confirm_to_quit)
+#     button2.pack(side='right')
+#     panel.pack(side='bottom')
+#     # 開啟主事件迴圈
+#     tkinter.mainloop()
 
 
-# a = (1,1,1,1,1,1,1)
+# if __name__ == '__main__':
+#     main()
+
+
+# a = {1,1,1,1,1,1,1}
 
 # print(a)
 
+def list_max_value(x):
+    m1, m2 = (x[0], x[1]) if x[0]>x[1] else (x[1], x[0])
+    for i in range(2, len(x)):
+        if x[i] > m1:
+            m2 = m1
+            m1 = x[i]
+        elif x[i] > m2:
+            m2 = x[i]
+    return m1, m2
+list1 = [2, 5, 1, 4 , 6, 7, 8, 9, 12, 235, 90]
+print(list_max_value(list1))
