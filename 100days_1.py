@@ -299,14 +299,169 @@
 
 # print(a)
 
-def list_max_value(x):
-    m1, m2 = (x[0], x[1]) if x[0]>x[1] else (x[1], x[0])
-    for i in range(2, len(x)):
-        if x[i] > m1:
-            m2 = m1
-            m1 = x[i]
-        elif x[i] > m2:
-            m2 = x[i]
-    return m1, m2
-list1 = [2, 5, 1, 4 , 6, 7, 8, 9, 12, 235, 90]
-print(list_max_value(list1))
+# def list_max_value(x):
+#     m1, m2 = (x[0], x[1]) if x[0]>x[1] else (x[1], x[0])
+#     for i in range(2, len(x)):
+#         if x[i] > m1:
+#             m2 = m1
+#             m1 = x[i]
+#         elif x[i] > m2:
+#             m2 = x[i]
+#     return m1, m2
+# list1 = [2, 5, 1, 4 , 6, 7, 8, 9, 12, 235, 90]
+# print(list_max_value(list1))
+
+# class Student(object):
+#     def __init__(self, name, age):
+#         self.name = name
+#         self.age = age
+#     def study(self, course_name):
+#         print("%s正在學習%s." % (self.name, course_name))
+    
+#     def watch_movie(self):
+#         if self.age < 18:
+#             print('%s只能觀看《熊出沒》.' % self.name)
+#         else:
+#             print('%s正在觀看島國愛情大電影.' % self.name)
+# def main():
+#     # 建立學生物件並指定姓名和年齡
+#     stu1 = Student('駱昊', 38)
+#     # 給物件發study訊息
+#     stu1.study('Python程式設計')
+#     # 給物件發watch_av訊息
+#     stu1.watch_movie()
+#     stu2 = Student('王大錘', 15)
+#     stu2.study('思想品德')
+#     stu2.watch_movie()
+
+
+# if __name__ == '__main__':
+#     main()
+
+# class Test:
+
+#     def __init__(self, foo):
+#         self.__foo = foo
+
+#     def __bar(self):
+#         print(self.__foo)
+#         print('__bar')
+
+
+# def main():
+#     test = Test('hello')
+#     # AttributeError: 'Test' object has no attribute '__bar'
+#     test.__bar()
+#     # AttributeError: 'Test' object has no attribute '__foo'
+#     print(test.__foo)
+
+
+# if __name__ == "__main__":
+#     main()
+
+# from time import sleep
+
+
+# class Clock(object):
+#     """數字時鐘"""
+
+#     def __init__(self, hour=0, minute=0, second=0):
+#         """初始化方法
+
+#         :param hour: 時
+#         :param minute: 分
+#         :param second: 秒
+#         """
+#         self._hour = hour
+#         self._minute = minute
+#         self._second = second
+
+    # def run(self):
+    #     """走字"""
+    #     self._second += 1
+    #     if self._second == 60:
+    #         self._second = 0
+    #         self._minute += 1
+    #         if self._minute == 60:
+    #             self._minute = 0
+    #             self._hour += 1
+    #             if self._hour == 24:
+    #                 self._hour = 0
+
+    # def show(self):
+    #     """顯示時間"""
+    #     return '%02d:%02d:%02d' % \
+    #            (self._hour, self._minute, self._second)
+
+
+# def main():
+#     clock = Clock(23, 59, 58)
+#     while True:
+#         print(clock.show())
+#         sleep(1)
+#         clock.run()
+
+
+# if __name__ == '__main__':
+#     main()
+
+# import os, time
+# for i in range(10):
+#     os.system('cls' if os.name == 'nt' else 'clear')
+#     print(f"Refreshing... {i}")
+#     time.sleep(1)
+
+import time, os
+
+class Clock(object):
+    def __init__(self, hour, mins, sec):
+        self.hour = hour
+        self.mins = mins
+        self.sec = sec    
+    def go(self): 
+        print(f"{self.hour}:{self.mins}:{self.sec}")  
+        for i in range(60):
+            os.system('cls' if os.name == 'nt' else 'clear')
+            sec = self.sec
+            mins = self.mins
+            hour = self.hour
+            if self.sec != 60:                
+                print(f"{hour}:{mins}:{sec}")
+                self.sec = sec + 1
+                time.sleep(1.3)
+            elif sec >= 60:
+                sec = "00"
+                mins = mins + 1
+                print(f"{hour}:{mins}:{sec}")
+                self.sec = 0 + 1
+                self.mins = mins
+                time.sleep(1.3)
+            elif mins >= 60:
+                sec = "00"
+                mins = "00"
+                hour = hour + 1
+                print(f"{hour}:{mins}:{sec}")
+                self.sec = 0 + 1
+                self.mins = 0
+                time.sleep(1.3)
+            
+            
+            elif hour >= 24:
+                sec = 00
+                mins = 00
+                hour = 00
+                print(f"{hour}:{mins}:{sec}")
+                self.sec = sec + 1
+                time.sleep(1.3)
+
+
+def main():       
+    clock = Clock(23, 59, 58)
+    clock.go()
+
+if __name__ == '__main__':
+    main() 
+
+
+
+
