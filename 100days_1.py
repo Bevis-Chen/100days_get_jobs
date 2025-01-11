@@ -420,43 +420,54 @@ class Clock(object):
         self.sec = sec    
     def go(self): 
         print(f"{self.hour}:{self.mins}:{self.sec}")  
-        for i in range(60):
+        # for i in range(60):
+        while True:
             os.system('cls' if os.name == 'nt' else 'clear')
             sec = self.sec
             mins = self.mins
             hour = self.hour
-            if self.sec != 60:                
+            if sec != 60:                
                 print(f"{hour}:{mins}:{sec}")
                 self.sec = sec + 1
                 time.sleep(1.3)
-            elif sec >= 60:
+            elif sec == 60:
                 sec = "00"
                 mins = mins + 1
-                print(f"{hour}:{mins}:{sec}")
-                self.sec = 0 + 1
-                self.mins = mins
-                time.sleep(1.3)
-            elif mins >= 60:
-                sec = "00"
-                mins = "00"
-                hour = hour + 1
-                print(f"{hour}:{mins}:{sec}")
-                self.sec = 0 + 1
-                self.mins = 0
-                time.sleep(1.3)
-            
-            
-            elif hour >= 24:
-                sec = 00
-                mins = 00
-                hour = 00
-                print(f"{hour}:{mins}:{sec}")
-                self.sec = sec + 1
-                time.sleep(1.3)
+                if mins < 60:
+                    print(f"{hour}:{mins}:{sec}")
+                    self.sec = 0 + 1
+                    self.mins = mins
+                    time.sleep(1.3)
+                elif mins >= 60:
+                    sec = "00"
+                    mins = "00"
+                    hour = hour + 1
+                    print(f"{hour}:{mins}:{sec}")
+                    sec = 0 + 1
+                    mins = 0
+                    time.sleep(1.3)
+        # else:
+            # if hour < 24:
+            #     hour = hour + 1
+            #     mins = "00"
+            #     sec = "00"                
+            #     print(f"{hour}:{mins}:{sec}")
+            #     self.sec = 0 + 1
+            #     self.mins = 0
+            #     time.sleep(1.3)                        
+            # elif hour > 24:
+            #     sec = "00"
+            #     mins = "00"
+            #     hour = "00"
+            #     print(f"{hour}:{mins}:{sec}")
+            #     self.sec = 0 + 1
+            #     self.mins = "00"
+            #     self.hour = "00"
+            #     time.sleep(1.3)
 
 
 def main():       
-    clock = Clock(23, 59, 58)
+    clock = Clock(22, 59, 58)
     clock.go()
 
 if __name__ == '__main__':
