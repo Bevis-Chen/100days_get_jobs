@@ -411,58 +411,97 @@
 #     print(f"Refreshing... {i}")
 #     time.sleep(1)
 
-import time, os
-class Clock(object):
-    def __init__(self, hour, mins, sec):
-        self.hour = hour
-        self.mins = mins
-        self.sec = sec    
-    def go(self): 
-        print(f"{self.hour}:{self.mins}:{self.sec}")  
-        # for i in range(60):
-        while True:
-            os.system('cls' if os.name == 'nt' else 'clear')        
-            sec = self.sec
-            mins = self.mins
-            hour = self.hour
-            if sec != 60:                
-                print(f"{hour}:{mins}:{sec}")
-                self.sec = sec + 1
-                time.sleep(1.3)
-            elif sec == 60:
-                sec = "00"
-                mins = mins + 1
-                if mins < 60:
-                    print(f"{hour}:{mins}:{sec}")
-                    self.sec = 0 + 1
-                    self.mins = mins
-                    time.sleep(1.3)
-                elif mins == 60:
-                    if hour + 1 < 24:
-                        sec = "00"
-                        mins = "00"
-                        hour = hour + 1
-                        print(f"{hour}:{mins}:{sec}")
-                        self.sec = 1
-                        self.mins = 0
-                        self.hour = hour
-                        time.sleep(1.3)
-                    elif hour + 1 == 24:
-                        sec = "00"
-                        mins = "00"
-                        hour = "00"
-                        print(f"{hour}:{mins}:{sec}")
-                        self.sec = 1
-                        self.mins = 0
-                        self.hour = 0
-                        time.sleep(1.3)
-def main():       
-    clock = Clock(21, 59, 58)
-    clock.go()
+# import time, os
+# class Clock(object):
+#     def __init__(self, hour, mins, sec):
+#         self.hour = hour
+#         self.mins = mins
+#         self.sec = sec    
+#     def go(self): 
+#         print(f"{self.hour}:{self.mins}:{self.sec}")  
+#         # for i in range(60):
+#         while True:
+#             os.system('cls' if os.name == 'nt' else 'clear')        
+#             sec = self.sec
+#             mins = self.mins
+#             hour = self.hour
+#             if sec != 60:                
+#                 print(f"{hour}:{mins}:{sec}")
+#                 self.sec = sec + 1
+#                 time.sleep(1.3)
+#             elif sec == 60:
+#                 sec = "00"
+#                 mins = mins + 1
+#                 if mins < 60:
+#                     print(f"{hour}:{mins}:{sec}")
+#                     self.sec = 0 + 1
+#                     self.mins = mins
+#                     time.sleep(1.3)
+#                 elif mins == 60:
+#                     if hour + 1 < 24:
+#                         sec = "00"
+#                         mins = "00"
+#                         hour = hour + 1
+#                         print(f"{hour}:{mins}:{sec}")
+#                         self.sec = 1
+#                         self.mins = 0
+#                         self.hour = hour
+#                         time.sleep(1.3)
+#                     elif hour + 1 == 24:
+#                         sec = "00"
+#                         mins = "00"
+#                         hour = "00"
+#                         print(f"{hour}:{mins}:{sec}")
+#                         self.sec = 1
+#                         self.mins = 0
+#                         self.hour = 0
+#                         time.sleep(1.3)
+# def main():       
+#     clock = Clock(21, 59, 58)
+#     clock.go()
+
+# if __name__ == '__main__':
+#     main() 
+
+#Day 09
+
+class Person(object):
+
+    def __init__(self, name, age):
+        self._name = name
+        self._age = age
+
+    # 訪問器 - getter方法
+    @property
+    def name(self):
+        return self._name
+
+    # 訪問器 - getter方法
+    @property
+    def age(self):
+        return self._age
+
+    # 修改器 - setter方法
+    @age.setter
+    def age(self, age):
+        self._age = age
+
+    def play(self):
+        if self._age <= 16:
+            print('%s正在玩飛行棋.' % self._name)
+        else:
+            print('%s正在玩鬥地主.' % self._name)
+
+
+def main():
+    person = Person('王大錘', 12)
+    person.play()
+    person.age = 22
+    person.play()
+    # person.name = '白元芳'  # AttributeError: can't set attribute
+
 
 if __name__ == '__main__':
-    main() 
-
-
+    main()
 
 
